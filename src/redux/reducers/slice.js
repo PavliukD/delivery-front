@@ -18,8 +18,8 @@ const Slice = createSlice({
       },
     extraReducers: {
         [fetchProducts.fulfilled]: (state, action) => {
-            state.shopList = action.payload.shopList
-            state.productsList = action.payload.productsList
+            state.shopList = action.payload.data.shopList
+            state.productsList = action.payload.data.productsList
         },
         [fetchProducts.rejected]: (state) => {
             state.shopList = []

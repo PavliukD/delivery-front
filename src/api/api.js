@@ -9,7 +9,6 @@ export const api = {
         get: async () => {
             try {
                 const response = await axios.get('/products')
-                console.log(response)
                 return response.data
             } catch (e) {
                 return e
