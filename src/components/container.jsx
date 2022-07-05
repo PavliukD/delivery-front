@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const ContainerWrap = styled.div`
-    display: block;
+    display: flex;
     margin: auto;
     padding: 40px 20px;
     width: 1200px;

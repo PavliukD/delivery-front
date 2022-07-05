@@ -7,7 +7,8 @@ const ShopsListWrap = styled.div`
     width: 360px;
     padding: 20px 40px;
     border: 1px solid black;
-    border-radius: 10px
+    border-radius: 10px;
+    overflow: auto;
 `
 const StyleTitel = styled.h3`
     margin: auto;
@@ -20,8 +21,6 @@ const StyledList = styled.ul`
 `
 
 const StyledListItem = styled.li`
-    margin-left: auto;
-    margin-right: auto;
 
     :not(:first-child){
         margin-top: 20px;
@@ -29,6 +28,7 @@ const StyledListItem = styled.li`
 `
 const StyledListButton = styled.button`
     display: block;
+    margin: auto;
     padding: 10px 20px;
     width: 160px;
     height: 50px;

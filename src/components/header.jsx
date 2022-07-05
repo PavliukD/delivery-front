@@ -3,6 +3,8 @@ import styled from "styled-components"
 
 const NavList = styled.div`
     display: flex;
+    width: 1200px;
+    margin: auto;
 `
 
 const StyledNavLink = styled(NavLink)`
