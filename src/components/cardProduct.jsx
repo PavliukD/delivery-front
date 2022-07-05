@@ -46,7 +46,7 @@ const Button = styled.button`
 export const ProductCard = ({product}) => {
 
     const onClickButton = (e) => {
-        console.log(e.currentTarget)
+        console.log(e.target)
     }
 
     return (
