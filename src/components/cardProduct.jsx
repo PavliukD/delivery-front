@@ -43,10 +43,16 @@ const Button = styled.button`
     }
 `
 
-export const ProductCard = ({product}) => {
+export const ProductCard = ({product, shop}) => {
+    const dispatch = useDispatch()
 
     const onClickButton = (e) => {
-        console.log(e.target)
+        
+        dispatch(createOrder({
+            shop: e.currentTarget.dataset.shop,
+            product: e.currentTarget.dataset.product,
+            quantity: 1
+        }))
     }
 
     return (
@@ -54,7 +60,12 @@ export const ProductCard = ({product}) => {
             <Image src="" alt={`This is image of ${product.productName}`}></Image>
             <Title>{product.productName}</Title>
             <Text>Price: {product.price}</Text>
-            <Button type="button" onClick={onClickButton}>add to cart</Button>
+            <Button 
+                type="button" 
+                onClick={onClickButton} 
+                data-product={product.productName}
+                data-shop={shop}
+                >add to cart</Button>
        </ProductCardWrap>
     )
 }

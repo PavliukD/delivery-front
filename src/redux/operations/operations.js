@@ -28,7 +28,7 @@ export const addOrder = createAsyncThunk(
 export const createOrder = createAsyncThunk(
     'orders/createOrder',
     (data, {getState}) => {
-        const order = getState().order
+        const order = getState().slice.order
         const updatedOrder = [...order, data]
         console.log(updatedOrder)
         return updatedOrder

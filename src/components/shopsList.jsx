@@ -49,11 +49,10 @@ export const ShopsList = ({list, products, callback}) => {
 
 
     useEffect(() => {
-        callback(products.filter(product => product.shopName === isActive))
+        callback(isActive)
     },[isActive])
 
     const onClickButton = (e) => {
-        console.log(e.currentTarget.dataset.id)
         setIsActive(e.currentTarget.dataset.id)
     }
 

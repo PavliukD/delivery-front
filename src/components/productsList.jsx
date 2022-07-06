@@ -29,13 +29,13 @@ const ProductsListItem = styled.li`
     border-radius: 10px;
 `
 
-export const ProductsList = ({products}) => {
+export const ProductsList = ({products, shop}) => {
     return(
         <ProductsListWrap>
             <StyledList>
                 {products.map(product => 
                     <ProductsListItem key={product.productName}>
-                        <ProductCard product={product}></ProductCard>
+                        <ProductCard product={product} shop={shop}></ProductCard>
                     </ProductsListItem>
                 )}
             </StyledList>
