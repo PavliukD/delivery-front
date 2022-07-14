@@ -1,26 +1,40 @@
 import styled from 'styled-components'
+import { OrderListItem } from './orderListItem'
 
-const CartListWrap = styled.div`
-    display: block;
+const OrderListWrap = styled.div`
     margin-left: 10px;
     padding: 20px 40px;
-    width: 100%;
+    width: 50%;
     height: 480px;
     border: 1px solid black;
     border-radius: 10px;
+    overflow: auto;
 `
 
 const OrderList = styled.ul`
+    display: block;
     padding-inline-start: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
 `
 
-const OrderListItem = styled.li`
-`
+
 
 export const CartList = ({order, callback}) => {
     return(
-        <CartListWrap>
-            
-        </CartListWrap>
+        <OrderListWrap>
+            <OrderList>
+                {order.map(product => {
+                    return(
+                        <OrderListItem 
+                            key={`${product.shopName}-${product.productName}`}
+                            product={product}>
+                        </OrderListItem>
+                    )
+                })}
+            </OrderList>
+        </OrderListWrap>
     )
 }

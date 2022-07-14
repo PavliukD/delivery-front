@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {useDispatch} from "react-redux"
+import {useDispatch, useSelector} from "react-redux"
 import {createOrder} from '../redux/operations/operations'
 
 
@@ -45,13 +45,18 @@ const Button = styled.button`
 
 export const ProductCard = ({product, shop}) => {
     const dispatch = useDispatch()
+    const {order} = useSelector((state) => state.slice)
 
     const onClickButton = (e) => {
-        
+        const res = order.find(item => item.productName === product.productName)
+        if (res) {
+            return
+        }
         dispatch(createOrder({
-            shop: e.currentTarget.dataset.shop,
-            product: e.currentTarget.dataset.product,
-            quantity: 1
+            price: product.price,
+            productName: product.productName,
+            shopName: product.shopName,
+            quantity: 1,
         }))
     }
 
@@ -63,8 +68,6 @@ export const ProductCard = ({product, shop}) => {
             <Button 
                 type="button" 
                 onClick={onClickButton} 
-                data-product={product.productName}
-                data-shop={shop}
                 >add to cart</Button>
        </ProductCardWrap>
     )
